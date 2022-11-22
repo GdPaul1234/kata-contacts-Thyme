@@ -18,10 +18,10 @@ the query (in milliseconds):
 | 10         | 0            |
 | 100        | 1            |
 | 10,000     | 1            |
-| 50,000     | 7            |
-| 100,000    | 13           |
-| 1,000,000  | 99           |
-| 10,000,000 | 998          |
+| 50,000     | 4            |
+| 100,000    | 34           |
+| 1,000,000  | 86           |
+| 10,000,000 | 876          |
 
 You'll probably notice the code does not work when n gets big (=~ 1,000,000).
 
@@ -51,5 +51,15 @@ CREATE TABLE contacts(
 
 CREATE UNIQUE INDEX index_contacts_email ON contacts(email);
 ```
+
+| size       | time (in ms) |
+|------------|--------------|
+| 10         | 0            |
+| 100        | 1            |
+| 10,000     | 1            |
+| 50,000     | 1            |
+| 100,000    | 1            |
+| 1,000,000  | 1            |
+| 10,000,000 | 1            |
 
 Make a graph for the new result. Does it match what you would expect ?
