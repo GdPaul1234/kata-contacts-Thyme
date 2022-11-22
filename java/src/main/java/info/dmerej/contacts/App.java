@@ -50,7 +50,7 @@ public class App {
         database.getContactNameFromEmail(email);
         long end = System.currentTimeMillis();
         long elapsed = end - start;
-        System.out.format("Query took %f seconds\n", elapsed / 1000.0);
+        System.out.format("Query took %d ms\n", elapsed);
     }
 
     public void close() {
