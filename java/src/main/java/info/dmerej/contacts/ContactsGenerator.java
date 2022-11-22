@@ -1,17 +1,20 @@
 package info.dmerej.contacts;
 
-import java.util.Arrays;
+import java.util.Random;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class ContactsGenerator {
+  private static final Contact[] TEMPLATE_CONTACTS = new Contact[]{
+          new Contact("Alice", "alice@aol.com"),
+          new Contact("Bob", "bob@gmail.com"),
+          new Contact("Eve", "eve@fastmail.com"),
+  };
+
   public Stream<Contact> generateContacts(int count) {
-    // TODO: generate a *lot* of contacts instead of just 3
-    Contact[] contacts = new Contact[]{
-      new Contact("Alice", "alice@aol.com"),
-      new Contact("Bob", "bob@gmail.com"),
-      new Contact("Eve", "eve@fastmail.com"),
-    };
-    return Arrays.stream(contacts);
+    Random r = new Random();
+
+    return IntStream.range(0, count)
+            .mapToObj(i -> TEMPLATE_CONTACTS[r.nextInt(TEMPLATE_CONTACTS.length)]);
   }
 }
