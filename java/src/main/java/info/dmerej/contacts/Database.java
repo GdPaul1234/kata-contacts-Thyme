@@ -8,6 +8,7 @@ public class Database {
     private Connection connection;
     private int insertedCount = 0;
 
+
     public Database(File databaseFile) {
         String databasePath = databaseFile.getPath();
         try {
@@ -36,7 +37,24 @@ public class Database {
     }
 
     public void insertContacts(Stream<Contact> contacts) {
-        // TODO
+        String query = "INSERT INTO  contacts (name, email) VALUES (?,?)";
+
+        try {
+            connection.setAutoCommit(false);
+            PreparedStatement statement = connection.prepareStatement(query);
+
+            for (var contact : contacts.toList()) {
+                statement.setString(1, contact.name());
+                statement.setString(2, contact.email());
+                statement.addBatch();
+            }
+
+            statement.executeBatch();
+            connection.commit();
+            connection.setAutoCommit(true);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public String getContactNameFromEmail(String email) {
