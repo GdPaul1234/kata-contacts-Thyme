@@ -23,7 +23,7 @@ the query (in milliseconds):
 | 1,000,000  | 86           |
 | 10,000,000 | 876          |
 
-![image](https://user-images.githubusercontent.com/63653239/203347917-89a7d3b7-b28c-41f6-8fae-a79331297127.png)
+![image](https://user-images.githubusercontent.com/63653239/203350697-728eeee2-2765-4a45-9a29-cf393b0c6a3b.png)
 
 
 You'll probably notice the code does not work when n gets big (=~ 1,000,000).
