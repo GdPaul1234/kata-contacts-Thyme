@@ -66,3 +66,9 @@ CREATE UNIQUE INDEX index_contacts_email ON contacts(email);
 | 10,000,000 | 1            |
 
 Make a graph for the new result. Does it match what you would expect ?
+
+> Yes.
+> With an index, we do not need to perform a full table scan.
+> As a result, the time to access the last contact is the same 
+> as the time to access to the first one.
+> 
