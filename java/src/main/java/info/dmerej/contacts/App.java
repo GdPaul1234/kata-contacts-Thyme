@@ -6,17 +6,16 @@ import java.util.stream.Stream;
 
 public class App {
 
-    private Database database;
-    private ContactsGenerator contactsGenerator;
+    private final Database database;
+    private final ContactsGenerator contactsGenerator;
 
     public App() {
         File file = new File("contacts.sqlite3");
-        if (!file.exists()) {
-            database = new Database(file);
-            database.migrate();
-        } else {
-            database = new Database(file);
-        }
+        file.delete(); // delete db to ensure independent benchmark
+
+        database = new Database(file);
+        database.migrate();
+
         contactsGenerator = new ContactsGenerator();
     }
 
