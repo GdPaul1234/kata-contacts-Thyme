@@ -23,6 +23,9 @@ the query (in milliseconds):
 | 1,000,000  | 86           |
 | 10,000,000 | 876          |
 
+![image](https://user-images.githubusercontent.com/63653239/203347917-89a7d3b7-b28c-41f6-8fae-a79331297127.png)
+
+
 You'll probably notice the code does not work when n gets big (=~ 1,000,000).
 
 Inserting contacts one by one will be to slow, but inserting 1 million
